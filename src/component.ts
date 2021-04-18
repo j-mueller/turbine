@@ -594,6 +594,9 @@ class FixedDomPosition implements DomApi {
   }
 
   appendChild(child: Node): void {
+    if (!this.end.parentElement) {
+      this.parent.appendChild(this.end);
+    };
     this.parent.insertBefore(child, this.end);
   }
   insertBefore(e: Node, a: Node): void {
